@@ -9,35 +9,31 @@ interface QuestionScreenProps {
 }
 
 export const QuestionScreen = ({ question, onAnswer }: QuestionScreenProps) => {
-  const progress = (question.id / 10) * 100;
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="min-h-screen bg-gradient-hero flex items-center justify-center p-6"
+      className="min-h-screen bg-gradient-hero flex items-center justify-center p-4 sm:p-6 pt-24 sm:pt-28"
     >
       <div className="w-full max-w-3xl">
-        <ProgressBar progress={progress} />
-        
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-card rounded-2xl shadow-elevated p-8 md:p-12"
+          className="bg-card rounded-xl sm:rounded-2xl shadow-elevated p-4 sm:p-6 md:p-8 lg:p-12"
         >
           <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-secondary text-secondary-foreground rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
               Princípio: {question.principle}
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground leading-tight">
               {question.text}
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {question.answers.map((answer, index) => (
               <motion.div
                 key={answer.id}
@@ -48,12 +44,12 @@ export const QuestionScreen = ({ question, onAnswer }: QuestionScreenProps) => {
                 <Button
                   onClick={() => onAnswer(answer.id)}
                   variant="outline"
-                  className="w-full text-left p-6 h-auto border-2 hover:border-primary hover:bg-secondary transition-all text-base"
+                  className="w-full text-left p-3 sm:p-4 md:p-5 lg:p-6 h-auto border-2 hover:border-primary hover:bg-secondary transition-all text-sm sm:text-base leading-relaxed min-h-[60px] sm:min-h-[70px]"
                 >
-                  <span className="font-semibold text-primary mr-3">
+                  <span className="font-semibold text-primary mr-2 sm:mr-3 flex-shrink-0">
                     {String.fromCharCode(97 + index)})
                   </span>
-                  {answer.text}
+                  <span className="flex-1">{answer.text}</span>
                 </Button>
               </motion.div>
             ))}
