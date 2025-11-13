@@ -3,6 +3,7 @@ import { WelcomeScreen } from "@/components/quiz/WelcomeScreen";
 import { QuestionScreen } from "@/components/quiz/QuestionScreen";
 import { FeedbackScreen } from "@/components/quiz/FeedbackScreen";
 import { ResultScreen } from "@/components/quiz/ResultScreen";
+import { ProgressBar } from "@/components/quiz/ProgressBar";
 import { quizData } from "@/data/quizData";
 
 type ScreenType = "welcome" | "question" | "feedback" | "result";
@@ -44,10 +45,16 @@ const Index = () => {
     }
   };
 
-  const progress = ((currentQuestionIndex + 1) / quizData.length) * 100;
+  const getProgress = () => {
+    if (screen === "welcome") return 0;
+    if (screen === "result") return 100;
+    return ((currentQuestionIndex + 1) / quizData.length) * 100;
+  };
 
   return (
     <>
+      <ProgressBar progress={getProgress()} />
+      
       {screen === "welcome" && <WelcomeScreen onStart={handleStart} />}
       
       {screen === "question" && (
@@ -60,7 +67,7 @@ const Index = () => {
       {screen === "feedback" && selectedFeedback && (
         <FeedbackScreen
           feedback={selectedFeedback}
-          progress={progress}
+          progress={getProgress()}
           onNext={handleNext}
           isLast={currentQuestionIndex === quizData.length - 1}
         />
