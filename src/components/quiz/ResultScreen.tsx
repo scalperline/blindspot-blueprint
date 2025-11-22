@@ -382,7 +382,7 @@ export const ResultScreen = ({ feedbacks }: ResultScreenProps) => {
                 Ferramenta de Apoio ao Foco e Controle Inibitório da Compulsão
               </p>
               <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed max-w-2xl mx-auto">
-                Trata-se de uma ferramenta auditiva baseada em neurociência, calibrada na frequência exata de 40 Hz (Ondas Gama), <span className="font-bold text-foreground">para momentos de crises emocionais</span>.
+                Trata-se de uma ferramenta auditiva baseada em neurociência, calibrada na frequência exata de 40 Hz (Ondas Gama), para momentos de estresse, crises emocionais e para quando bater aquela vontade incontrolável de <span className="italic">'atacar a geladeira'</span>.
               </p>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed max-w-2xl mx-auto">
                 Estudos de instituições como o MIT (Massachusetts Institute of Technology) associam esta frequência específica a estados de alta performance cognitiva, memória e clareza mental.
