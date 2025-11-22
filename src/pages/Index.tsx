@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { WelcomeScreen } from "@/components/quiz/WelcomeScreen";
 import { QuestionScreen } from "@/components/quiz/QuestionScreen";
 import { FeedbackScreen } from "@/components/quiz/FeedbackScreen";
 import { ResultScreen } from "@/components/quiz/ResultScreen";
+import { LoadingScreen } from "@/components/quiz/LoadingScreen";
 import { ProgressBar } from "@/components/quiz/ProgressBar";
 import { quizData } from "@/data/quizData";
 
-type ScreenType = "welcome" | "question" | "feedback" | "result";
+type ScreenType = "welcome" | "question" | "feedback" | "loading" | "result";
 
 const Index = () => {
   const [screen, setScreen] = useState<ScreenType>("welcome");
@@ -41,19 +42,39 @@ const Index = () => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setScreen("question");
     } else {
-      setScreen("result");
+      setScreen("loading");
     }
+  };
+
+  const handleLoadingComplete = () => {
+    setScreen("result");
   };
 
   const getProgress = () => {
     if (screen === "welcome") return 0;
-    if (screen === "result") return 100;
+    if (screen === "result" || screen === "loading") return 100;
     return ((currentQuestionIndex + 1) / quizData.length) * 100;
   };
 
+  const handleReset = () => {
+    setScreen("welcome");
+    setCurrentQuestionIndex(0);
+    setSelectedFeedback(null);
+    setCollectedFeedbacks([]);
+  };
+
+  // Faz scroll para o topo sempre que a tela muda
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [screen, currentQuestionIndex]);
+
   return (
     <>
-      <ProgressBar progress={getProgress()} />
+      <ProgressBar progress={getProgress()} onLogoClick={handleReset} />
       
       {screen === "welcome" && <WelcomeScreen onStart={handleStart} />}
       
@@ -71,6 +92,10 @@ const Index = () => {
           onNext={handleNext}
           isLast={currentQuestionIndex === quizData.length - 1}
         />
+      )}
+      
+      {screen === "loading" && (
+        <LoadingScreen onComplete={handleLoadingComplete} />
       )}
       
       {screen === "result" && (
