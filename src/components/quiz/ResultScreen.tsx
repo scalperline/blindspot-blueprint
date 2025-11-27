@@ -34,7 +34,7 @@ const removeRedundantIntroduction = (description: string): string => {
 
   // Remove palavras isoladas positivas que podem ter ficado
   cleaned = cleaned.replace(
-    /^(Excelente|Perfeito|Maravilha|Fantástico|Exato)[\.!]\s*/i,
+    /^(Excelente|Perfeito|Maravilha|Fantástico|Exato)[.!]\s*/i,
     ""
   );
 
@@ -139,7 +139,7 @@ export const ResultScreen = ({ feedbacks }: ResultScreenProps) => {
                 Gabriel Ângelo
               </h2>
               <p className="text-sm sm:text-base text-muted-foreground">
-                Criador da NutriCoffee Brasil®
+                Criador do Diagnóstico Ponto Cego®
               </p>
               <p className="text-xs sm:text-sm text-muted-foreground italic">
                 Especializando em Nutrição Comportamental e Neurociência do Comportamento Humano.
@@ -249,20 +249,23 @@ export const ResultScreen = ({ feedbacks }: ResultScreenProps) => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-accent font-bold flex-shrink-0">✅</span>
-                      <span>Dormir bem e beber bastante água.</span>
+                      <span>Beber bastante água.</span>
                     </li>
                   </ul>
                   <p className="font-semibold text-foreground">
-                    Viu? A questão não é tão simples assim!
+                    Viu? Mas a questão não é tão simples assim!
                   </p>
                   <p>
-                    As dietas falharam porque ignoraram <span className="font-semibold text-foreground">sua ansiedade</span> em momentos de estresse, a <span className="font-semibold text-foreground">sua rotina de trabalho</span>, os <span className="font-semibold text-foreground">seus gatilhos emocionais</span> quando está vulnerável, ou seja, a <span className="font-semibold text-foreground">sua história</span>. Elas falharam porque focaram no <span className="font-semibold text-foreground">efeito</span> do problema e não na <span className="font-semibold text-foreground">causa</span>.
+                    As dietas falharam porque ignoraram <span className="italic font-semibold text-foreground">sua ansiedade</span> em momentos de estresse, a <span className="italic font-semibold text-foreground">sua rotina de trabalho</span> na semana, os <span className="italic font-semibold text-foreground">seus gatilhos emocionais</span> quando está vulnerável, ou seja, a <span className="italic font-semibold text-foreground">sua história</span>. Elas falharam porque focaram no <span className="italic font-semibold text-foreground">efeito</span> do problema e não na <span className="italic font-semibold text-foreground">causa</span>.
                   </p>
                   <p>
                     👇Aqui está a verdade que ninguém te contou:
                   </p>
                   <p className="font-semibold text-foreground mb-0">
-                    Você não precisa escolher entre ter Saúde Clínica (peso saudável, exames bons) e Paz Mental. É possível ter os dois. E foi exatamente para isso que eu criei o 'MÉTODO ANTI-DIETA'
+                    Você não precisa escolher entre ter Saúde Clínica (peso saudável, exames bons) e Paz Mental. É possível ter os dois.
+                  </p>
+                  <p className="font-semibold text-foreground">
+                    E foi exatamente para isso que eu criei o MÉTODO ANTI-DIETA
                   </p>
                 </div>
               </div>
@@ -328,19 +331,19 @@ export const ResultScreen = ({ feedbacks }: ResultScreenProps) => {
               <li className="flex items-start gap-2 sm:gap-3">
                 <span className="text-primary font-bold flex-shrink-0">✅</span>
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Identificar a Fome Real vs. Fome de Emoção:</strong> Nunca mais confunda ansiedade, cansaço ou tristeza com fome. Tenha clareza total do que seu corpo pede.
+                  <strong className="text-foreground">Identificar a Fome Real vs. Fome de Emocional:</strong> Nunca mais confunda ansiedade, cansaço ou tristeza com fome. Tenha clareza total do que seu corpo pede.
                 </span>
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
                 <span className="text-primary font-bold flex-shrink-0">✅</span>
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Cuidar da sua Saúde Clínica sem Tortura:</strong> Gerencie glicemia, pressão e colesterol através da "Nutrição Comportamental", provando que saúde não precisa ser sinônimo de comida sem graça.
+                  <strong className="text-foreground">Cuidar da sua Saúde Clínica sem Tortura:</strong> Gerencie glicemia, pressão e colesterol através de uma 'nutrição sustentável', provando que saúde não precisa ser sinônimo de comida sem graça.
                 </span>
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
                 <span className="text-primary font-bold flex-shrink-0">✅</span>
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Emagrecer porque se Curou (e não para se curar):</strong> O peso vai mudar porque você mudou sua mente, seus hábitos e desinflamou sua relação com a comida.
+                  <strong className="text-foreground">Emagrecer porque se Curou (e não para se curar):</strong> O peso vai mudar porque você mudou sua mente, seus hábitos e curou sua relação com a comida.
                 </span>
               </li>
             </ul>
@@ -473,7 +476,7 @@ export const ResultScreen = ({ feedbacks }: ResultScreenProps) => {
                 Por Apenas:
               </p>
               <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 sm:mb-3">
-                12x de R$ 3,67
+                6 x de R$ 8,25
               </p>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-4 sm:mb-6">
                 ou R$ 44,00 à vista
@@ -489,10 +492,17 @@ export const ResultScreen = ({ feedbacks }: ResultScreenProps) => {
                 }}
               >
                 <Button
+                  asChild
                   size="lg"
                   className="px-6 sm:px-8 py-5 sm:py-6 text-xs sm:text-base bg-gradient-primary hover:opacity-90 transition-opacity shadow-elevated w-full sm:w-auto"
                 >
-                  QUERO O MÉTODO ANTI-DIETA AGORA
+                  <a
+                    href="https://pay.hotmart.com/Q103065196U?checkoutMode=10"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    QUERO O MÉTODO ANTI-DIETA AGORA
+                  </a>
                 </Button>
               </motion.div>
             </div>

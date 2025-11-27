@@ -38,7 +38,7 @@ export const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
                 Gabriel Ângelo
               </h2>
               <p className="text-sm sm:text-base text-muted-foreground">
-                Criador da NutriCoffee Brasil®
+                Criador do Diagnóstico Ponto Cego®
               </p>
               <p className="text-xs sm:text-sm text-muted-foreground italic">
                 Especializando em Nutrição Comportamental e Neurociência do Comportamento Humano.
